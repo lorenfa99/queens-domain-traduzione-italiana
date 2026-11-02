@@ -1,4 +1,4 @@
-QUEEN'S DOMAIN - TRADUZIONE ITALIANA v1.0.0-beta.1 (beta)
+QUEEN'S DOMAIN - TRADUZIONE ITALIANA v1.0.0-beta.2 (beta)
 
 INSTALLAZIONE
 1. Chiudi il gioco ed estrai tutto lo ZIP.
@@ -8,6 +8,11 @@ INSTALLAZIONE
 Se il programma non trova il gioco, su Steam scegli:
 Queen's Domain > Gestisci > Sfoglia i file locali.
 Incolla quel percorso quando viene richiesto.
+
+AGGIORNAMENTO
+Chiudi il gioco e usa Disinstalla.cmd del vecchio pacchetto prima di installare
+la nuova versione. Se non hai più il vecchio pacchetto, rimuovi soltanto
+QueensDomain_Italian_P.pak della precedente traduzione dalla cartella Paks.
 
 INSTALLAZIONE MANUALE
 Copia la cartella QueensDomain di questo ZIP nella cartella del gioco.

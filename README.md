@@ -3,7 +3,7 @@
 Traduzione italiana non ufficiale di **Queen's Domain** per PC, versione Steam.
 Copre **2.272 voci di testo**: menu, dialoghi, descrizioni e documenti.
 
-**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.1/QueensDomain-Traduzione-Italiana-v1.0.0-beta.1.zip)**
+**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.2/QueensDomain-Traduzione-Italiana-v1.0.0-beta.2.zip)**
 
 ## Installazione
 
@@ -19,9 +19,17 @@ Il pacchetto originale del gioco non viene sostituito.
 Per rimuovere la mod, chiudi il gioco e avvia **`Disinstalla.cmd`**, oppure elimina
 soltanto `QueensDomain_Italian_P.pak` dalla cartella `Paks`.
 
+## Aggiornamento da una versione precedente
+
+Chiudi il gioco e rimuovi la vecchia traduzione con **`Disinstalla.cmd` della
+versione precedente**. Poi estrai il nuovo ZIP e avvia `Installa.cmd`.
+Se non hai più il vecchio pacchetto, rimuovi soltanto il file
+`QueensDomain_Italian_P.pak` della precedente traduzione dalla cartella `Paks`,
+quindi installa la nuova versione.
+
 ## Compatibilità e segnalazioni
 
-**v1.0.0-beta.1 — beta.** Verificata offline sulle versioni del gioco **13464 e 13480**;
+**v1.0.0-beta.2 — beta.** Verificata offline sulle versioni del gioco **13464 e 13480**;
 il controllo completo nel gioco è ancora in corso. L'installer verifica la versione
 dei file prima di copiare la mod. Per versioni successive serve una nuova verifica.
 
@@ -43,6 +51,10 @@ coordinati da un agente orchestratore:
 4. **Passate finali:** controlli separati su coerenza dell'intero corpus e fluidità
    italiana, seguiti da ulteriori revisioni delle modifiche e verifiche automatiche
    di identità, segnaposto, markup, font e pacchetto finale.
+5. **Revisione aggiuntiva — Gemini 4 Argon:** ulteriore confronto tra inglese e italiano.
+   Le proposte sono state verificate in Codex e sono state integrate tre correzioni
+   mirate. I testi modificati hanno completato una nuova revisione indipendente
+   e i controlli locali di coerenza e fluidità.
 
 Un harness conserva versioni, segnalazioni e correzioni per ogni voce e blocca la
 build se mancano fasi o controlli obbligatori.

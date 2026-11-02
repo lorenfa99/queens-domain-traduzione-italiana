@@ -1,5 +1,14 @@
 # Novità
 
+## v1.0.0-beta.2 — Revisione linguistica aggiuntiva
+
+- Revisione ulteriore con **Gemini 4 Argon**, seguita dalla verifica delle proposte in Codex.
+- Tre correzioni mirate: riferimento alla regina nella descrizione di Poenir, ordine del nome della statuetta di citrino e precisione delle alterazioni di stato nella descrizione del martello.
+- Nuova revisione bilingue indipendente, coerenza e fluidità locali sulle voci modificate.
+- Copertura invariata di 2.272 voci; nuovo pacchetto verificato offline.
+
+La verifica completa nel gioco resta in corso.
+
 ## v1.0.0-beta.1 — Beta
 
 - Prima beta della localizzazione italiana: 2.272 voci di testo.
