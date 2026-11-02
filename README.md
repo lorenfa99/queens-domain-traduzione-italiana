@@ -30,12 +30,22 @@ con schermata, luogo/menu e versione del gioco.
 
 ## Metodo
 
-La preparazione iniziale — analisi delle fonti, contesto, stile, glossario e personaggi —
-è stata svolta con **Claude Opus 5.5 in Claude Code**. La traduzione e le fasi successive
-sono state realizzate con **GPT-6.1 Sol in Codex**: pilot di 134 voci, traduzione,
-revisione bilingue in contesti indipendenti, correzioni, coerenza del corpus e fluidità
-italiana. Ogni modifica è tornata a revisione. I controlli tecnici verificano identità,
-segnaposto, markup, font e lettura del pacchetto; non sostituiscono il playtest.
+La lavorazione linguistica segue una **pipeline interamente automatizzata di agenti IA**,
+coordinati da un agente orchestratore:
+
+1. **Preparazione — Claude Opus 5.5 in Claude Code:** analisi di inglese e contesto,
+   definizione di stile, glossario e profili dei personaggi.
+2. **Traduzione — GPT-6.1 Sol in Codex:** lavoro in piccoli lotti, ciascuno con fonte,
+   regole condivise e contesto pertinente.
+3. **Revisione indipendente:** un altro agente, in un contesto nuovo senza la
+   conversazione del traduttore, confronta inglese e italiano. Un agente dedicato
+   risolve i problemi; ogni testo modificato torna a revisione.
+4. **Passate finali:** controlli separati su coerenza dell'intero corpus e fluidità
+   italiana, seguiti da ulteriori revisioni delle modifiche e verifiche automatiche
+   di identità, segnaposto, markup, font e pacchetto finale.
+
+Un harness conserva versioni, segnalazioni e correzioni per ogni voce e blocca la
+build se mancano fasi o controlli obbligatori.
 
 Progetto di [lorenfa99](https://github.com/lorenfa99), assistito da IA e non affiliato
 agli autori del gioco. Il repository distribuisce la mod e gli strumenti di installazione.
