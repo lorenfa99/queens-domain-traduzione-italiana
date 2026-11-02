@@ -1,0 +1,25 @@
+name: Errore nella traduzione
+description: Segnala un errore di testo, caratteri mancanti o impaginazione.
+title: "[Traduzione] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Versione del gioco e della traduzione
+      placeholder: "Gioco 13480, traduzione v0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Dove compare?
+      description: Indica il menu, il personaggio o il luogo e come riprodurre il problema.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Errore e schermata
+      description: Descrivi il problema e aggiungi una schermata, se possibile.
+    validations:
+      required: true

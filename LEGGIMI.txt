@@ -1,0 +1,26 @@
+QUEEN'S DOMAIN - TRADUZIONE ITALIANA v0.1.0 (anteprima)
+
+INSTALLAZIONE
+1. Chiudi il gioco ed estrai tutto lo ZIP.
+2. Fai doppio clic su Installa.cmd.
+3. Avvia il gioco e seleziona English (può apparire come Italiano).
+
+Se il programma non trova il gioco, su Steam scegli:
+Queen's Domain > Gestisci > Sfoglia i file locali.
+Incolla quel percorso quando viene richiesto.
+
+INSTALLAZIONE MANUALE
+Copia la cartella QueensDomain di questo ZIP nella cartella del gioco.
+Il file deve trovarsi qui:
+QueensDomain\Content\Paks\QueensDomain_Italian_P.pak
+Non sostituire o eliminare QueensDomain-WindowsNoEditor.pak.
+
+RIMOZIONE
+Chiudi il gioco e fai doppio clic su Disinstalla.cmd.
+In alternativa, elimina soltanto QueensDomain_Italian_P.pak dalla cartella Paks.
+
+Compatibilità verificata offline: versioni del gioco 13464 e 13480.
+Verifica completa nel gioco ancora in corso.
+
+Download, aggiornamenti e segnalazioni:
+https://github.com/lorenfa99/queens-domain-traduzione-italiana
