@@ -3,7 +3,7 @@
 Traduzione italiana non ufficiale di **Queen's Domain** per PC, versione Steam.
 Copre **2.272 voci di testo**: menu, dialoghi, descrizioni e documenti.
 
-**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v0.1.0/QueensDomain-Traduzione-Italiana-v0.1.0.zip)**
+**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.1/QueensDomain-Traduzione-Italiana-v1.0.0-beta.1.zip)**
 
 ## Installazione
 
@@ -11,8 +11,6 @@ Copre **2.272 voci di testo**: menu, dialoghi, descrizioni e documenti.
 2. Fai doppio clic su **`Installa.cmd`**: trova l'installazione Steam e copia la mod.
    Se non la trova, incolla il percorso aperto da Steam → **Gestisci → Sfoglia i file locali**.
 3. Avvia il gioco e seleziona la lingua **English**, che può apparire come **Italiano**.
-
-Non servono Python, programmi di modding o modifiche ai salvataggi.
 
 In alternativa, copia la cartella **`QueensDomain`** dello ZIP nella cartella del gioco:
 il file deve finire in `QueensDomain\Content\Paks\QueensDomain_Italian_P.pak`.
@@ -23,7 +21,7 @@ soltanto `QueensDomain_Italian_P.pak` dalla cartella `Paks`.
 
 ## Compatibilità e segnalazioni
 
-**v0.1.0 — anteprima.** Verificata offline sulle versioni del gioco **13464 e 13480**;
+**v1.0.0-beta.1 — beta.** Verificata offline sulle versioni del gioco **13464 e 13480**;
 il controllo completo nel gioco è ancora in corso. L'installer verifica la versione
 dei file prima di copiare la mod. Per versioni successive serve una nuova verifica.
 
