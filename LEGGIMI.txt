@@ -1,4 +1,4 @@
-QUEEN'S DOMAIN - TRADUZIONE ITALIANA v1.0.0-beta.2 (beta)
+QUEEN'S DOMAIN - TRADUZIONE ITALIANA v1.0.0-beta.3 (beta)
 
 INSTALLAZIONE
 1. Chiudi il gioco ed estrai tutto lo ZIP.
