@@ -16,16 +16,16 @@ In alternativa, copia la cartella **`QueensDomain`** dello ZIP nella cartella de
 il file deve finire in `QueensDomain\Content\Paks\QueensDomain_Italian_P.pak`.
 Il pacchetto originale del gioco non viene sostituito.
 
-Per rimuovere la mod, chiudi il gioco e avvia **`Disinstalla.cmd`**, oppure elimina
+Per rimuovere la mod (anche se proviene da una versione precedente), chiudi il gioco e avvia
+**`Disinstalla.cmd`**, oppure elimina
 soltanto `QueensDomain_Italian_P.pak` dalla cartella `Paks`.
 
 ## Aggiornamento da una versione precedente
 
-Chiudi il gioco e rimuovi la vecchia traduzione con **`Disinstalla.cmd` della
-versione precedente**. Poi estrai il nuovo ZIP e avvia `Installa.cmd`.
-Se non hai più il vecchio pacchetto, rimuovi soltanto il file
-`QueensDomain_Italian_P.pak` della precedente traduzione dalla cartella `Paks`,
-quindi installa la nuova versione.
+Chiudi il gioco, estrai il nuovo ZIP e avvia `Installa.cmd`: la versione precedente
+viene sostituita automaticamente, senza disinstallare nulla. Se il file presente non
+è una versione nota della traduzione, ne viene conservata una copia di sicurezza
+accanto ad esso (`QueensDomain_Italian_P.pak.backup-…`).
 
 ## Compatibilità e segnalazioni
 

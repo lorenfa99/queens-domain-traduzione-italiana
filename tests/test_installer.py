@@ -81,10 +81,38 @@ class InstallerTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(self.target.stat().st_mtime_ns, before)
 
-    def test_different_overlay_is_never_overwritten(self):
+    def backups(self):
+        return sorted(self.paks.glob("QueensDomain_Italian_P.pak.backup-*"))
+
+    def test_known_previous_version_is_replaced_without_backup(self):
+        self.target.write_bytes(b"older release of this translation")
+        self.manifest["previous_overlays"] = [{"version": "1.0.0-old", "sha256": sha(b"older release of this translation")}]
+        self.write_manifest()
+        result = self.run_installer()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("1.0.0-old", result.stdout)
+        self.assertEqual(self.target.read_bytes(), self.payload)
+        self.assertEqual(self.backups(), [])
+        self.assertEqual(len(list(self.paks.iterdir())), 2)
+
+    def test_unknown_file_with_the_same_name_is_replaced_and_kept_as_backup(self):
         self.target.write_bytes(b"another mod or edited translation")
+        result = self.run_installer()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(self.target.read_bytes(), self.payload)
+        self.assertEqual([p.read_bytes() for p in self.backups()], [b"another mod or edited translation"])
+
+    def test_install_works_without_previous_overlays_in_the_manifest(self):
+        self.assertNotIn("previous_overlays", self.manifest)
+        self.target.write_bytes(b"old")
+        self.assertEqual(self.run_installer().returncode, 0)
+        self.assertEqual(self.target.read_bytes(), self.payload)
+
+    def test_directory_with_the_overlay_name_is_not_touched(self):
+        self.target.mkdir()
+        (self.target / "keep.txt").write_text("keep")
         self.assertNotEqual(self.run_installer().returncode, 0)
-        self.assertEqual(self.target.read_bytes(), b"another mod or edited translation")
+        self.assertTrue((self.target / "keep.txt").exists())
 
     def unknown_vanilla(self):
         self.manifest["compatible_vanilla_paks"][0]["sha256"] = "0" * 64
@@ -118,11 +146,19 @@ class InstallerTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0, answer)
             self.assertFalse(self.target.exists(), answer)
 
-    def test_unknown_vanilla_never_overwrites_another_overlay(self):
+    def test_unconfirmed_unknown_vanilla_leaves_an_existing_overlay_untouched(self):
         self.unknown_vanilla()
-        self.target.write_bytes(b"another mod or edited translation")
-        self.assertNotEqual(self.run_installer(extra=" -AccettaVersioneNonVerificata").returncode, 0)
-        self.assertEqual(self.target.read_bytes(), b"another mod or edited translation")
+        self.target.write_bytes(b"older release of this translation")
+        self.assertNotEqual(self.run_installer().returncode, 0)
+        self.assertEqual(self.target.read_bytes(), b"older release of this translation")
+        self.assertEqual(self.backups(), [])
+
+    def test_confirmed_unknown_vanilla_still_upgrades_an_older_overlay(self):
+        self.unknown_vanilla()
+        self.target.write_bytes(b"older release of this translation")
+        result = self.run_installer(extra=" -AccettaVersioneNonVerificata")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(self.target.read_bytes(), self.payload)
 
     def test_duplicate_compatible_entries_are_rejected(self):
         self.manifest["compatible_vanilla_paks"].append(dict(self.manifest["compatible_vanilla_paks"][0]))
@@ -142,6 +178,14 @@ class InstallerTests(unittest.TestCase):
         self.assertNotEqual(self.run_installer("Uninstall", running=True).returncode, 0)
         self.assertEqual(self.target.read_bytes(), self.payload)
 
+    def test_uninstall_removes_known_previous_versions(self):
+        self.target.write_bytes(b"older release of this translation")
+        self.manifest["previous_overlays"] = [{"version": "1.0.0-old", "sha256": sha(b"older release of this translation")}]
+        self.write_manifest()
+        result = self.run_installer("Uninstall")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(list(self.paks.iterdir()), [self.vanilla])
+
     def test_uninstall_after_game_update_removes_only_exact_mod(self):
         self.target.write_bytes(self.payload)
         self.manifest["compatible_vanilla_paks"][0]["sha256"] = "0" * 64
@@ -151,10 +195,12 @@ class InstallerTests(unittest.TestCase):
         self.assertFalse(self.target.exists())
         self.assertEqual(list(self.paks.iterdir()), [self.vanilla])
 
-    def test_changed_overlay_is_preserved_on_uninstall(self):
+    def test_unknown_overlay_is_moved_aside_not_deleted_on_uninstall(self):
         self.target.write_bytes(b"externally changed overlay")
-        self.assertNotEqual(self.run_installer("Uninstall").returncode, 0)
-        self.assertEqual(self.target.read_bytes(), b"externally changed overlay")
+        result = self.run_installer("Uninstall")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertFalse(self.target.exists())
+        self.assertEqual([p.read_bytes() for p in self.backups()], [b"externally changed overlay"])
 
     def test_absent_mod_uninstall_is_idempotent(self):
         result = self.run_installer("Uninstall")

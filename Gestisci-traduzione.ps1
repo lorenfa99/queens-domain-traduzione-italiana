@@ -80,6 +80,14 @@ function Get-Sha256([string]$Path) {
     finally { $stream.Dispose(); $algorithm.Dispose() }
 }
 
+function Get-PreviousVersion($Manifest, [string]$Hash) {
+    $property = $Manifest.PSObject.Properties['previous_overlays']
+    if ($null -eq $property) { return $null }
+    $match = @($property.Value | Where-Object { $_.sha256 -ceq $Hash })
+    if ($match.Count -eq 0) { return $null }
+    return [string]$match[0].version
+}
+
 try {
     $manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'mod.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     $filename = 'QueensDomain_Italian_P.pak'
@@ -103,10 +111,16 @@ try {
             Write-Host 'Traduzione gia assente. Nessun file modificato.'
             exit 0
         }
-        if ((Get-Sha256 $target) -cne $expected) {
-            throw 'Il file presente appartiene a una versione diversa o e stato modificato. Conservato senza rimuoverlo; usa il relativo disinstallatore.'
+        $installed = Get-Sha256 $target
+        if ($installed -cne $expected -and $null -eq (Get-PreviousVersion $manifest $installed)) {
+            # Not a known version of this translation: keep it instead of deleting it.
+            $backup = $target + '.backup-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
+            [IO.File]::Move($target, $backup)
+            Write-Host ('Il file presente era diverso dalle versioni note: l''ho spostato in ' + (Split-Path -Leaf $backup) + ' invece di eliminarlo.')
         }
-        Remove-Item -LiteralPath $target
+        else {
+            Remove-Item -LiteralPath $target
+        }
         Write-Host 'Traduzione rimossa. Il pacchetto originale e i salvataggi sono invariati.'
         exit 0
     }
@@ -117,12 +131,16 @@ try {
     if ($compatible.Count -gt 1) {
         throw 'Manifest della traduzione non valido: scarica nuovamente lo ZIP completo.'
     }
+    $installed = $null
     if (Test-Path -LiteralPath $target) {
-        if ((Get-Sha256 $target) -ceq $expected) {
+        if (-not (Test-Path -LiteralPath $target -PathType Leaf)) {
+            throw 'QueensDomain_Italian_P.pak e una cartella: rimuovila a mano e riprova.'
+        }
+        $installed = Get-Sha256 $target
+        if ($installed -ceq $expected) {
             Write-Host 'Questa traduzione e gia installata. Nessun file modificato.'
             exit 0
         }
-        throw 'Esiste gia un altro QueensDomain_Italian_P.pak. Non e stato sovrascritto: rimuovi la precedente versione con il suo disinstallatore.'
     }
     if ($compatible.Count -eq 0) {
         # A game update changes the vanilla pak hash. The overlay only replaces the text file, so installing
@@ -143,15 +161,29 @@ try {
         }
     }
     $temporary = Join-Path $paks ('.qd-italiano-' + [guid]::NewGuid().ToString('N') + '.tmp')
+    $previous = $null
+    $backup = $null
     try {
         [IO.File]::Copy($source, $temporary, $false)
         if ((Get-Sha256 $temporary) -cne $expected) { throw 'Verifica della copia non riuscita.' }
-        # File.Move refuses an existing destination; a concurrent file is preserved.
-        [IO.File]::Move($temporary, $target)
+        if ($null -eq $installed) {
+            # File.Move refuses an existing destination; a concurrent file is preserved.
+            [IO.File]::Move($temporary, $target)
+        }
+        else {
+            # An older version (or another file with this name) is replaced; only unknown content is kept as a backup.
+            $previous = Get-PreviousVersion $manifest $installed
+            if ($null -eq $previous) { $backup = $target + '.backup-' + (Get-Date -Format 'yyyyMMdd-HHmmss') }
+            # PowerShell turns $null into an empty string; [NullString] passes a real null (no backup).
+            if ($null -eq $backup) { [IO.File]::Replace($temporary, $target, [NullString]::Value) }
+            else { [IO.File]::Replace($temporary, $target, $backup) }
+        }
     }
     finally {
         if (Test-Path -LiteralPath $temporary -PathType Leaf) { Remove-Item -LiteralPath $temporary }
     }
+    if ($null -ne $previous) { Write-Host ('Sostituita la versione precedente della traduzione (' + $previous + ').') }
+    elseif ($null -ne $backup) { Write-Host ('Il file presente era diverso dalle versioni note: ne ho conservato una copia in ' + (Split-Path -Leaf $backup) + '.') }
     if ($compatible.Count -eq 1) {
         Write-Host ('Traduzione installata per la versione ' + $compatible[0].game_version + '.')
     }

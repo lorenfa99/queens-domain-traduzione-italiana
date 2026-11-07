@@ -10,9 +10,9 @@ Queen's Domain > Gestisci > Sfoglia i file locali.
 Incolla quel percorso quando viene richiesto.
 
 AGGIORNAMENTO
-Chiudi il gioco e usa Disinstalla.cmd del vecchio pacchetto prima di installare
-la nuova versione. Se non hai più il vecchio pacchetto, rimuovi soltanto
-QueensDomain_Italian_P.pak della precedente traduzione dalla cartella Paks.
+Chiudi il gioco ed esegui Installa.cmd della nuova versione: sostituisce da solo
+la traduzione precedente, senza bisogno di disinstallare. Se il file presente non
+è una versione nota, ne viene conservata una copia (QueensDomain_Italian_P.pak.backup-...).
 
 INSTALLAZIONE MANUALE
 Copia la cartella QueensDomain di questo ZIP nella cartella del gioco.

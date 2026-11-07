@@ -25,5 +25,19 @@
     }
   ],
   "translated_units": 2277,
-  "runtime_testing": "in progress"
+  "runtime_testing": "in progress",
+  "previous_overlays": [
+    {
+      "version": "1.0.0-beta.1",
+      "sha256": "b771dda83e8d2251bd5541f46e7f72c351757d51e4a39def828b83527b526605"
+    },
+    {
+      "version": "1.0.0-beta.2",
+      "sha256": "c35e4f8fda391ebe72b1b2ed7add0d2e62739071abfa33252de6232d16e8c5f7"
+    },
+    {
+      "version": "1.0.0-beta.3",
+      "sha256": "7754b2ef7c6b30abebcb3f332c7d8e4adc1bd93a798a48b2760d0cd27782c366"
+    }
+  ]
 }
