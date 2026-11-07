@@ -1,4 +1,4 @@
-QUEEN'S DOMAIN - TRADUZIONE ITALIANA v1.0.0-beta.3 (beta)
+QUEEN'S DOMAIN - TRADUZIONE ITALIANA v1.0.0-beta.4 (beta)
 
 INSTALLAZIONE
 1. Chiudi il gioco ed estrai tutto lo ZIP.
@@ -24,8 +24,12 @@ RIMOZIONE
 Chiudi il gioco e fai doppio clic su Disinstalla.cmd.
 In alternativa, elimina soltanto QueensDomain_Italian_P.pak dalla cartella Paks.
 
-Compatibilità verificata offline: versioni del gioco 13464 e 13480.
+Compatibilità verificata offline: versioni del gioco 13464, 13480 e 13540.
 Verifica completa nel gioco ancora in corso.
+
+Se il gioco viene aggiornato e la sua versione non è ancora verificata, l'installazione mostra
+un avviso e chiede conferma. La traduzione dovrebbe funzionare, ma i testi nuovi o modificati
+dall'aggiornamento possono restare in inglese.
 
 Download, aggiornamenti e segnalazioni:
 https://github.com/lorenfa99/queens-domain-traduzione-italiana

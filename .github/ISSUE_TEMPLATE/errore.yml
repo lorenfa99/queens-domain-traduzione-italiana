@@ -6,7 +6,7 @@ body:
     id: version
     attributes:
       label: Versione del gioco e della traduzione
-      placeholder: "Gioco 13480, traduzione v1.0.0-beta.3"
+      placeholder: "Gioco 13540, traduzione v1.0.0-beta.4"
     validations:
       required: true
   - type: textarea

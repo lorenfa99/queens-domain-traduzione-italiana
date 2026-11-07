@@ -1,11 +1,11 @@
 {
   "name": "Queen's Domain — Traduzione italiana",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "status": "beta",
   "steam_appid": 1799840,
   "overlay": {
     "filename": "QueensDomain_Italian_P.pak",
-    "sha256": "7754b2ef7c6b30abebcb3f332c7d8e4adc1bd93a798a48b2760d0cd27782c366"
+    "sha256": "6b4247ef3b61b14fc21ffe8ff6687dcab8d7e9ccf03739533da30aad64ca7185"
   },
   "compatible_vanilla_paks": [
     {
@@ -17,8 +17,13 @@
       "game_version": "13480",
       "steam_build": "26356968",
       "sha256": "b1d940fc6ad9461271d059ac4b31c57969b103c073cde07020fe6d5cb0d0132d"
+    },
+    {
+      "game_version": "13540",
+      "steam_build": "26496428",
+      "sha256": "1aa2165261272a9d7762ccaa537e8be76bfcac17825365a1b8283914541d06e5"
     }
   ],
-  "translated_units": 2272,
+  "translated_units": 2277,
   "runtime_testing": "in progress"
 }

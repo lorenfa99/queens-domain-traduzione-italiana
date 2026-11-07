@@ -1,9 +1,9 @@
 # Queen's Domain — Traduzione italiana
 
 Traduzione italiana non ufficiale di **Queen's Domain** per PC, versione Steam.
-Copre **2.272 voci di testo**: menu, dialoghi, descrizioni e documenti.
+Copre **2.277 voci di testo**: menu, dialoghi, descrizioni e documenti.
 
-**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.3/QueensDomain-Traduzione-Italiana-v1.0.0-beta.3.zip)**
+**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.4/QueensDomain-Traduzione-Italiana-v1.0.0-beta.4.zip)**
 
 ## Installazione
 
@@ -29,9 +29,11 @@ quindi installa la nuova versione.
 
 ## Compatibilità e segnalazioni
 
-**v1.0.0-beta.3 — beta.** Verificata offline sulle versioni del gioco **13464 e 13480**;
+**v1.0.0-beta.4 — beta.** Verificata offline sulle versioni del gioco **13464, 13480 e 13540**;
 il controllo completo nel gioco è ancora in corso. L'installer verifica la versione
-dei file prima di copiare la mod. Per versioni successive serve una nuova verifica.
+dei file prima di copiare la mod. Se il gioco è stato aggiornato e la versione non è ancora verificata, l'installer avvisa e chiede
+conferma: la traduzione dovrebbe funzionare, ma i testi nuovi o modificati dall'aggiornamento possono
+restare in inglese.
 
 Per segnalare errori di testo o impaginazione, [apri una segnalazione](https://github.com/lorenfa99/queens-domain-traduzione-italiana/issues)
 con schermata, luogo/menu e versione del gioco.

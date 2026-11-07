@@ -3,7 +3,8 @@ param(
     [ValidateSet('Install', 'Uninstall')]
     [string]$Action = 'Install',
     [string]$GamePath,
-    [switch]$NonInteractive
+    [switch]$NonInteractive,
+    [switch]$AccettaVersioneNonVerificata
 )
 
 Set-StrictMode -Version Latest
@@ -113,8 +114,8 @@ try {
     $vanilla = Join-Path $paks 'QueensDomain-WindowsNoEditor.pak'
     $vanillaHash = Get-Sha256 $vanilla
     $compatible = @($manifest.compatible_vanilla_paks | Where-Object { $_.sha256 -ceq $vanillaHash })
-    if ($compatible.Count -ne 1) {
-        throw 'Questa versione del gioco non e ancora verificata per la mod. Nessun file copiato: controlla gli aggiornamenti della traduzione su GitHub.'
+    if ($compatible.Count -gt 1) {
+        throw 'Manifest della traduzione non valido: scarica nuovamente lo ZIP completo.'
     }
     if (Test-Path -LiteralPath $target) {
         if ((Get-Sha256 $target) -ceq $expected) {
@@ -122,6 +123,24 @@ try {
             exit 0
         }
         throw 'Esiste gia un altro QueensDomain_Italian_P.pak. Non e stato sovrascritto: rimuovi la precedente versione con il suo disinstallatore.'
+    }
+    if ($compatible.Count -eq 0) {
+        # A game update changes the vanilla pak hash. The overlay only replaces the text file, so installing
+        # is allowed after an explicit confirmation; new or changed strings may simply stay in English.
+        $known = (@($manifest.compatible_vanilla_paks | ForEach-Object { [string]$_.game_version }) -join ', ')
+        Write-Host 'ATTENZIONE: questa versione del gioco non e ancora verificata per la traduzione.' -ForegroundColor Yellow
+        Write-Host ('Versioni verificate: ' + $known + '. Impronta del pacchetto del gioco: ' + $vanillaHash.Substring(0, 16) + '.')
+        Write-Host 'La traduzione dovrebbe funzionare anche dopo un aggiornamento minore, ma i testi nuovi o'
+        Write-Host 'modificati dall''aggiornamento possono comparire in inglese.'
+        Write-Host 'Nessun file originale viene modificato e puoi rimuovere la traduzione con Disinstalla.cmd.'
+        Write-Host 'Controlla su GitHub se esiste una versione piu recente.'
+        if (-not $AccettaVersioneNonVerificata) {
+            if ($NonInteractive) {
+                throw 'Versione del gioco non verificata. Nessun file copiato: per installare comunque usa -AccettaVersioneNonVerificata.'
+            }
+            $answer = [string](Read-Host 'Vuoi installare comunque? Scrivi S per continuare, qualunque altro tasto per annullare')
+            if ($answer.Trim() -notmatch '^(s|si)$') { throw 'Operazione annullata. Nessun file copiato.' }
+        }
     }
     $temporary = Join-Path $paks ('.qd-italiano-' + [guid]::NewGuid().ToString('N') + '.tmp')
     try {
@@ -133,7 +152,12 @@ try {
     finally {
         if (Test-Path -LiteralPath $temporary -PathType Leaf) { Remove-Item -LiteralPath $temporary }
     }
-    Write-Host ('Traduzione installata per la versione ' + $compatible[0].game_version + '.')
+    if ($compatible.Count -eq 1) {
+        Write-Host ('Traduzione installata per la versione ' + $compatible[0].game_version + '.')
+    }
+    else {
+        Write-Host 'Traduzione installata (versione del gioco non verificata). Se noti problemi, segnalali su GitHub.'
+    }
     Write-Host 'Avvia il gioco e seleziona English (puo apparire come Italiano).'
     Write-Host 'Il pacchetto originale e i salvataggi non sono stati modificati.'
     exit 0

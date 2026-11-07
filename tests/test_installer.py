@@ -48,17 +48,21 @@ class InstallerTests(unittest.TestCase):
     def write_manifest(self):
         (self.package / "mod.json").write_text(json.dumps(self.manifest), encoding="utf-8")
 
-    def run_installer(self, action="Install", running=False):
+    def run_installer(self, action="Install", running=False, extra="", answer=None):
+        """answer=None runs the script with -NonInteractive; otherwise it is piped to the confirmation prompt."""
         literal = lambda text: "'" + str(text).replace("'", "''") + "'"
         process = "[pscustomobject]@{ProcessName='QueensDomain-Win64-Shipping'}" if running else "@()"
         command = (
             "function Get-Process { " + process + " }; & "
             + literal(self.package / "Gestisci-traduzione.ps1")
-            + " -Action " + action + " -GamePath " + literal(self.game) + " -NonInteractive"
+            + " -Action " + action + " -GamePath " + literal(self.game)
+            + ("" if answer is not None else " -NonInteractive") + extra
         )
+        flags = ["-NoLogo", "-NoProfile"] + ([] if answer is not None else ["-NonInteractive"])
         result = subprocess.run(
-            ["powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", command],
+            ["powershell.exe", *flags, "-ExecutionPolicy", "Bypass", "-Command", command],
             capture_output=True, encoding="utf-8", errors="replace", env=self.env, timeout=30,
+            input=answer,
         )
         self.assertEqual(self.vanilla.read_bytes(), b"fixture vanilla resource")
         self.assertFalse(list(self.paks.glob("*.tmp")))
@@ -82,8 +86,46 @@ class InstallerTests(unittest.TestCase):
         self.assertNotEqual(self.run_installer().returncode, 0)
         self.assertEqual(self.target.read_bytes(), b"another mod or edited translation")
 
-    def test_unknown_vanilla_is_rejected(self):
+    def unknown_vanilla(self):
         self.manifest["compatible_vanilla_paks"][0]["sha256"] = "0" * 64
+        self.write_manifest()
+
+    def test_unknown_vanilla_needs_confirmation_when_non_interactive(self):
+        self.unknown_vanilla()
+        result = self.run_installer()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("AccettaVersioneNonVerificata", result.stdout)
+        self.assertFalse(self.target.exists())
+
+    def test_unknown_vanilla_installs_with_explicit_switch_and_warns(self):
+        self.unknown_vanilla()
+        result = self.run_installer(extra=" -AccettaVersioneNonVerificata")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("ATTENZIONE", result.stdout)
+        self.assertEqual(self.target.read_bytes(), self.payload)
+        self.assertEqual(len(list(self.paks.iterdir())), 2)
+
+    def test_unknown_vanilla_interactive_yes_installs(self):
+        self.unknown_vanilla()
+        result = self.run_installer(answer="s\n")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(self.target.read_bytes(), self.payload)
+
+    def test_unknown_vanilla_interactive_no_or_empty_cancels(self):
+        self.unknown_vanilla()
+        for answer in ("n\n", "\n", ""):
+            result = self.run_installer(answer=answer)
+            self.assertNotEqual(result.returncode, 0, answer)
+            self.assertFalse(self.target.exists(), answer)
+
+    def test_unknown_vanilla_never_overwrites_another_overlay(self):
+        self.unknown_vanilla()
+        self.target.write_bytes(b"another mod or edited translation")
+        self.assertNotEqual(self.run_installer(extra=" -AccettaVersioneNonVerificata").returncode, 0)
+        self.assertEqual(self.target.read_bytes(), b"another mod or edited translation")
+
+    def test_duplicate_compatible_entries_are_rejected(self):
+        self.manifest["compatible_vanilla_paks"].append(dict(self.manifest["compatible_vanilla_paks"][0]))
         self.write_manifest()
         self.assertNotEqual(self.run_installer().returncode, 0)
         self.assertFalse(self.target.exists())
