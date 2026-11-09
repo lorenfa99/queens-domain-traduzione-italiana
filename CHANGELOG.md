@@ -8,6 +8,7 @@
 - `Installa.cmd` sostituisce da solo la versione precedente della traduzione: non serve più disinstallare prima di aggiornare. `Disinstalla.cmd` rimuove anche le versioni precedenti.
 - Un file con lo stesso nome ma non riconosciuto come versione della traduzione viene sostituito dopo averne conservato una copia di sicurezza (`.backup-…`).
 - Nuova revisione bilingue indipendente sulle voci nuove o modificate.
+- Ritoccato il nome di un oggetto dell'inventario. Il pacchetto di questa versione è stato ricaricato il 9 novembre 2026: chi ha già installato la versione precedente viene aggiornato da `Installa.cmd`.
 - Copertura: 2.277 voci di testo; nuovo pacchetto verificato offline.
 
 La verifica completa nel gioco resta in corso.

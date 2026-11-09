@@ -5,7 +5,7 @@
   "steam_appid": 1799840,
   "overlay": {
     "filename": "QueensDomain_Italian_P.pak",
-    "sha256": "6b4247ef3b61b14fc21ffe8ff6687dcab8d7e9ccf03739533da30aad64ca7185"
+    "sha256": "f288982356c6696d895910f3f86a932bccb1f3373c87669a2442afbff23b2d7c"
   },
   "compatible_vanilla_paks": [
     {
@@ -38,6 +38,10 @@
     {
       "version": "1.0.0-beta.3",
       "sha256": "7754b2ef7c6b30abebcb3f332c7d8e4adc1bd93a798a48b2760d0cd27782c366"
+    },
+    {
+      "version": "1.0.0-beta.4 (pubblicazione precedente)",
+      "sha256": "6b4247ef3b61b14fc21ffe8ff6687dcab8d7e9ccf03739533da30aad64ca7185"
     }
   ]
 }
