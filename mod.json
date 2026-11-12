@@ -1,31 +1,21 @@
 {
   "name": "Queen's Domain — Traduzione italiana",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "status": "beta",
   "steam_appid": 1799840,
   "overlay": {
     "filename": "QueensDomain_Italian_P.pak",
-    "sha256": "f288982356c6696d895910f3f86a932bccb1f3373c87669a2442afbff23b2d7c"
+    "sha256": "1c0304cc38c71c3ea3b3770548ad2e876a09030a6fd9a2f621a288309309a102"
   },
   "compatible_vanilla_paks": [
     {
-      "game_version": "13464",
-      "steam_build": "26316541",
-      "sha256": "9efb1f67f23e2148974e7e26cea2554ac370f8d205d2a77b8d8e3c6d68df640f"
-    },
-    {
-      "game_version": "13480",
-      "steam_build": "26356968",
-      "sha256": "b1d940fc6ad9461271d059ac4b31c57969b103c073cde07020fe6d5cb0d0132d"
-    },
-    {
-      "game_version": "13540",
-      "steam_build": "26496428",
-      "sha256": "1aa2165261272a9d7762ccaa537e8be76bfcac17825365a1b8283914541d06e5"
+      "game_version": "13565",
+      "steam_build": "26612669",
+      "sha256": "ed661935778c29f9403fc0e3e469ef2a9248539ada953b21e5ee5eff1b54a284"
     }
   ],
   "translated_units": 2277,
-  "runtime_testing": "in progress",
+  "runtime_testing": "pending",
   "previous_overlays": [
     {
       "version": "1.0.0-beta.1",
@@ -42,6 +32,10 @@
     {
       "version": "1.0.0-beta.4 (pubblicazione precedente)",
       "sha256": "6b4247ef3b61b14fc21ffe8ff6687dcab8d7e9ccf03739533da30aad64ca7185"
+    },
+    {
+      "version": "1.0.0-beta.4",
+      "sha256": "f288982356c6696d895910f3f86a932bccb1f3373c87669a2442afbff23b2d7c"
     }
   ]
 }

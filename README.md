@@ -3,7 +3,7 @@
 Traduzione italiana non ufficiale di **Queen's Domain** per PC, versione Steam.
 Copre **2.277 voci di testo**: menu, dialoghi, descrizioni e documenti.
 
-**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.4/QueensDomain-Traduzione-Italiana-v1.0.0-beta.4.zip)**
+**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.5/QueensDomain-Traduzione-Italiana-v1.0.0-beta.5.zip)**
 
 ## Installazione
 
@@ -29,11 +29,10 @@ accanto ad esso (`QueensDomain_Italian_P.pak.backup-…`).
 
 ## Compatibilità e segnalazioni
 
-**v1.0.0-beta.4 — beta.** Verificata offline sulle versioni del gioco **13464, 13480 e 13540**;
-il controllo completo nel gioco è ancora in corso. L'installer verifica la versione
-dei file prima di copiare la mod. Se il gioco è stato aggiornato e la versione non è ancora verificata, l'installer avvisa e chiede
-conferma: la traduzione dovrebbe funzionare, ma i testi nuovi o modificati dall'aggiornamento possono
-restare in inglese.
+**v1.0.0-beta.5** è verificata offline con **Steam 1.01.06 (build 13565)**.
+La prova completa nel gioco resta da fare. Su altre build l'installer mostra un avviso e
+chiede conferma. Le voci cambiate tra le build possono apparire in inglese.
+Per le versioni precedenti del gioco resta disponibile la [beta.4](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/tag/v1.0.0-beta.4).
 
 Per segnalare errori di testo o impaginazione, [apri una segnalazione](https://github.com/lorenfa99/queens-domain-traduzione-italiana/issues)
 con schermata, luogo/menu e versione del gioco.
@@ -57,6 +56,9 @@ coordinati da un agente orchestratore:
    Le proposte sono state verificate in Codex e sono state integrate tre correzioni
    mirate. I testi modificati hanno completato una nuova revisione indipendente
    e i controlli locali di coerenza e fluidità.
+6. **Rifinitura editoriale — Claude Opus 5.5 in Claude Code:** rilettura di tutto il corpus,
+   riscritture per rendere l'italiano più naturale e nuova revisione indipendente
+   delle voci ritoccate. Codex ha integrato la patch 1.01.06 e verificato il pacchetto.
 
 Un harness conserva versioni, segnalazioni e correzioni per ogni voce e blocca la
 build se mancano fasi o controlli obbligatori.

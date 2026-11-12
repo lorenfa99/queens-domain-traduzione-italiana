@@ -1,5 +1,14 @@
 # Novità
 
+## v1.0.0-beta.5 — Rifinitura italiana e patch Steam 1.01.06
+
+- Rilettura editoriale del corpus con Claude Opus 5.5. Dialoghi, descrizioni e documenti sono stati rifiniti per migliorare la naturalezza dell'italiano.
+- Nuova revisione bilingue indipendente delle voci modificate, con controlli di coerenza e fluidità.
+- Compatibilità con Steam **1.01.06**, build interna **13565**. Aggiornate le due descrizioni toccate dalla patch e uniformate le date dei diari con ordine verificabile.
+- Copertura di **2.277 voci**. L'installer aggiorna automaticamente le beta precedenti.
+
+Il pacchetto è verificato offline. La prova completa nel gioco resta da fare.
+
 ## v1.0.0-beta.4 — Patch 13540 del gioco
 
 - Compatibile con la patch **13540** del gioco: tradotte le 6 stringhe nuove o modificate (opzione per disattivare il tremolio dello schermo, terminale di alimentazione, descrizione della cella energetica compatta e guida agli effetti di stato con le nuove icone).
