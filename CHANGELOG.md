@@ -1,5 +1,11 @@
 # Novità
 
+## v1.0.0-beta.6 — Finale 1 e revisione dei testi segnalati
+
+- Rivisti la battuta della regina Siraatsu e l'epilogo del finale 1, la ricompensa dello chef Gagi e tre documenti.
+- Adottati i nomi Cristallo da viaggio e Frammento di cristallo da viaggio. Rifinita la descrizione del cristallo integro.
+- Confrontate 11 voci con l'inglese originale e verificato il loro caricamento nel motore di gioco. Compatibilità estesa a Steam 1.01.07 (build 13571).
+
 ## v1.0.0-beta.5 — Rifinitura italiana e patch Steam 1.01.06
 
 - Rilettura editoriale del corpus con Claude Opus 5.5. Dialoghi, descrizioni e documenti sono stati rifiniti per migliorare la naturalezza dell'italiano.
