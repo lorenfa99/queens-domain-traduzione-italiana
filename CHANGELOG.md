@@ -1,11 +1,12 @@
 # Novità
 
-## v1.0.0-beta.9 — Revisione delle parti narrate e dei titoli dei documenti
+## v1.0.0-beta.9 — Revisione delle parti narrate, dei documenti e dell'interfaccia
 
 - Riletti e rifiniti libri, cronache, diari, note, tavolette e incisioni: corretti passaggi con tono o resa imprecisa, uniformata l'ortografia di `dèi` e snelliti vari tratti di prosa.
 - Uniformati 8 titoli di note e diari allo stile naturale italiano (servitori del castello, Custodi del Sapere, Custodi del Peccato e prigioniero di Ommu).
 - Riviste anche le scelte finali davanti a Sipeha (`Bandisci`/`Mangia`), tre passaggi del testo rituale (`occhi chiusi`, `con animo arido`, `mangia`) e due ritocchi ai testi del re Upobna (`Gli dèi` e `Io Upobna`).
-- 43 voci riviste complessivamente rispetto alla beta.8; nuovo pacchetto verificato offline, compatibile con Steam 1.01.06 (build 13565) e 1.01.07 (build 13571).
+- Rifiniti 39 testi di menu, opzioni, assegnazioni comandi, modalità foto, sfide, guide, teletrasporti e punti di salvataggio (`Opzioni comandi`, `Tocca per correre`, `Caratteri ad alta risoluzione`, `Crunch`, `Muovi`, `Arancione`, `Bruciatura`, `ciurma`, `Vano scale`, `Metà torre`).
+- 82 voci riviste complessivamente rispetto alla beta.8; nuovo pacchetto verificato offline, compatibile con Steam 1.01.06 (build 13565) e 1.01.07 (build 13571).
 
 ## v1.0.0-beta.8 — Revisione generale dei dialoghi
 
