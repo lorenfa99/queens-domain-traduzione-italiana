@@ -3,7 +3,7 @@
 Traduzione italiana non ufficiale di **Queen's Domain** per PC, versione Steam.
 Copre **2.277 voci di testo**: menu, dialoghi, descrizioni e documenti.
 
-**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.8/QueensDomain-Traduzione-Italiana-v1.0.0-beta.8.zip)**
+**[Scarica la traduzione (.zip)](https://github.com/lorenfa99/queens-domain-traduzione-italiana/releases/download/v1.0.0-beta.9/QueensDomain-Traduzione-Italiana-v1.0.0-beta.9.zip)**
 
 ## Installazione
 
@@ -29,7 +29,7 @@ accanto ad esso (`QueensDomain_Italian_P.pak.backup-…`).
 
 ## Compatibilità e segnalazioni
 
-**v1.0.0-beta.8** è compatibile con **Steam 1.01.06 (build 13565)** e **1.01.07 (build 13571)**.
+**v1.0.0-beta.9** è compatibile con **Steam 1.01.06 (build 13565)** e **1.01.07 (build 13571)**.
 Il pacchetto è verificato offline; la prova completa nel gioco resta da fare.
 Su altre build l'installer mostra un avviso e
 chiede conferma. Le voci cambiate tra le build possono apparire in inglese.
