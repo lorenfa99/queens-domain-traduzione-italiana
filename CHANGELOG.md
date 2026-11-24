@@ -4,7 +4,8 @@
 
 - Riletti e rifiniti libri, cronache, diari, note, tavolette e incisioni: corretti passaggi con tono o resa imprecisa, uniformata l'ortografia di `dèi` e snelliti vari tratti di prosa.
 - Uniformati 8 titoli di note e diari allo stile naturale italiano (servitori del castello, Custodi del Sapere, Custodi del Peccato e prigioniero di Ommu).
-- 36 voci riviste complessivamente rispetto alla beta.8; nuovo pacchetto verificato offline, compatibile con Steam 1.01.06 (build 13565) e 1.01.07 (build 13571).
+- Riviste anche le scelte finali davanti a Sipeha (`Bandisci`/`Mangia`), tre passaggi del testo rituale (`occhi chiusi`, `con animo arido`, `mangia`) e due ritocchi ai testi del re Upobna (`Gli dèi` e `Io Upobna`).
+- 43 voci riviste complessivamente rispetto alla beta.8; nuovo pacchetto verificato offline, compatibile con Steam 1.01.06 (build 13565) e 1.01.07 (build 13571).
 
 ## v1.0.0-beta.8 — Revisione generale dei dialoghi
 
