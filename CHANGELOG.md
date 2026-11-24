@@ -1,5 +1,12 @@
 # Novità
 
+## v1.0.0-beta.7 — Dialoghi dello Specchio dei ricordi e regina Siraatsu
+
+- Riscritti per naturalezza e ritmo i dialoghi di commiato dello Specchio dei ricordi: gli spiriti dei Ricordi (Gius, Ekonta, Aganmi, Gagi ed En, Erma, Peha, Ossi e Wourha) e gli altri spiriti dei cavalieri di Casa Abraon e dei Predoni Iryupe.
+- Riviste le battute della regina Siraatsu all'inizio dello scontro e nel finale 1.
+- Snellite e uniformate le 8 descrizioni dei Ricordi.
+- 37 voci riviste complessivamente rispetto alla beta.6; nuovo pacchetto verificato offline, compatibile con Steam 1.01.06 (build 13565) e 1.01.07 (build 13571).
+
 ## v1.0.0-beta.6 — Finale 1 e revisione dei testi segnalati
 
 - Rivisti la battuta della regina Siraatsu e l'epilogo del finale 1, la ricompensa dello chef Gagi e tre documenti.
