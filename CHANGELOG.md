@@ -1,5 +1,11 @@
 # Novità
 
+## v1.0.0-beta.8 — Revisione generale dei dialoghi
+
+- Riletti e rifiniti i dialoghi dei personaggi principali e secondari (re Gius, capitano Aganmi, Ekonta, Arjaot, Budaen, Imba, Ippibi, chef Gagi, Peha, Ossi, Wourha, Erma, Saijha, il Necronomicon e la Porta dei Teschi) per eliminare calchi, ripetizioni e formule burocratiche.
+- Rifiniti alcuni passaggi dell'introduzione, del finale 3 e del testo rituale.
+- 54 voci riviste complessivamente rispetto alla beta.7; nuovo pacchetto verificato offline, compatibile con Steam 1.01.06 (build 13565) e 1.01.07 (build 13571).
+
 ## v1.0.0-beta.7 — Dialoghi dello Specchio dei ricordi e regina Siraatsu
 
 - Riscritti per naturalezza e ritmo i dialoghi di commiato dello Specchio dei ricordi: gli spiriti dei Ricordi (Gius, Ekonta, Aganmi, Gagi ed En, Erma, Peha, Ossi e Wourha) e gli altri spiriti dei cavalieri di Casa Abraon e dei Predoni Iryupe.
